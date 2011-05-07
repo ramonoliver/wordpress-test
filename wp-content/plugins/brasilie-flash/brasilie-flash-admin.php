@@ -3,20 +3,20 @@ if($_POST){
 	if( isset($_POST['action']) && $_POST['action'] == 'update' 
 		&& isset($_POST['option_page']) && $_POST['option_page'] == 'brasilie_flash_config' ){
 		$config = array();
-		$config['brasilie_flash1_name']  = cleanXSS($_POST['brasilie_flash1_name']);
-		$config['brasilie_flash1_title'] = cleanXSS($_POST['brasilie_flash1_title']);
-		$config['brasilie_flash1_text']  = cleanXSS($_POST['brasilie_flash1_text']);
-		$config['brasilie_flash2_name']  = cleanXSS($_POST['brasilie_flash2_name']);
-		$config['brasilie_flash2_title'] = cleanXSS($_POST['brasilie_flash2_title']);
-		$config['brasilie_flash2_text']  = cleanXSS($_POST['brasilie_flash2_text']);
+		$config['brasilie_flash1_name']  = $this->cleanXSS($_POST['brasilie_flash1_name']);
+		$config['brasilie_flash1_title'] = $this->cleanXSS($_POST['brasilie_flash1_title']);
+		$config['brasilie_flash1_text']  = $this->cleanXSS($_POST['brasilie_flash1_text']);
+		$config['brasilie_flash2_name']  = $this->cleanXSS($_POST['brasilie_flash2_name']);
+		$config['brasilie_flash2_title'] = $this->cleanXSS($_POST['brasilie_flash2_title']);
+		$config['brasilie_flash2_text']  = $this->cleanXSS($_POST['brasilie_flash2_text']);
 
-		if(validar($config)){
+		if($this->validar($config)){
 			$old_file1 = get_option('brasilie_flash1_name');
 			$old_file2 = get_option('brasilie_flash2_name');
 			foreach ($config as $key => $value) {
 				update_option($key, $value);
 			}
-			salvar_xml($config, array($old_file1, $old_file2));
+			$this->salvar_xml($config, array($old_file1, $old_file2));
 			?>
 			<div id="setting-error-settings_updated" class="updated settings-error"> 
 				<p><strong><?php _e('Configurações salvas.') ?></strong></p>
