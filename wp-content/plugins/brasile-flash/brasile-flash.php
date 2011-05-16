@@ -1,9 +1,9 @@
 <?php
 /**
- * @package Brasilie Flash
+ * @package brasile Flash
  */
 /*
-Plugin Name: Brasilie Flash
+Plugin Name: brasile Flash
 Plugin URI: http://brasileturismoviagens.com/
 Description: Plugin desenvolvido especificamente para alterar o conteúdo dos flashs na página inicial do site
 Version: 1.0
@@ -17,7 +17,7 @@ Author URI: http://agenciaclaro.com.br/
 *
 */
 
-class BrasilieFlash
+class BrasileFlash
 {
 	/**
 	* 
@@ -27,12 +27,12 @@ class BrasilieFlash
 	public function __construct()
 	{		
 		// Acão que adiciona o menu
-		add_action('admin_menu', array($this ,'brasilie_admin_menu') );
+		add_action('admin_menu', array($this ,'brasile_admin_menu') );
 	}
 
-	public function brasilie_admin_page()
+	public function brasile_admin_page()
 	{
-		include_once('brasilie-flash-admin.php');
+		include_once('brasile-flash-admin.php');
 	}
 
 	/**
@@ -40,20 +40,20 @@ class BrasilieFlash
 	* Método que adiciona o menu e registra as configurações as configurações
 	*
 	*/
-	public function brasilie_admin_menu()
+	public function brasile_admin_menu()
 	{
-		add_options_page("Brasilie Flash", "Brasilie Flash", 'manage_options', "brasilie-flash-menu", array($this, "brasilie_admin_page") );
-		add_action( 'admin_init',  array($this, 'register_brasilie_flash_config' ) );
+		add_options_page("Brasile Flash", "Brasile Flash", 'manage_options', "brasile-flash-menu", array($this, "brasile_admin_page") );
+		add_action( 'admin_init',  array($this, 'register_brasile_flash_config' ) );
 	}
 
-	public function register_brasilie_flash_config(){
-		register_setting( 'brasilie_flash_config', 'brasilie_flash1_name' );
-		register_setting( 'brasilie_flash_config', 'brasilie_flash1_title' );
-		register_setting( 'brasilie_flash_config', 'brasilie_flash1_text' );
+	public function register_brasile_flash_config(){
+		register_setting( 'brasile_flash_config', 'brasile_flash1_name' );
+		register_setting( 'brasile_flash_config', 'brasile_flash1_title' );
+		register_setting( 'brasile_flash_config', 'brasile_flash1_text' );
 
-		register_setting( 'brasilie_flash_config', 'brasilie_flash2_name' );
-		register_setting( 'brasilie_flash_config', 'brasilie_flash2_title' );
-		register_setting( 'brasilie_flash_config', 'brasilie_flash2_text' );
+		register_setting( 'brasile_flash_config', 'brasile_flash2_name' );
+		register_setting( 'brasile_flash_config', 'brasile_flash2_title' );
+		register_setting( 'brasile_flash_config', 'brasile_flash2_text' );
 		
 	}
 
@@ -76,7 +76,7 @@ class BrasilieFlash
 
 		$flashs = $this->preparar_dados($arr);
 		foreach ($flashs as $flash) {
-			$xml = new SimpleXMLElement("<?xml version='1.0' encoding='ISO-8859-1'?><brasilieflash />");
+			$xml = new SimpleXMLElement("<?xml version='1.0' encoding='ISO-8859-1'?><brasileflash />");
 			$xml->addChild('titulo', $flash['titulo']);
 			$xml->addChild('texto', $flash['texto']);
 
@@ -94,13 +94,13 @@ class BrasilieFlash
 	private function preparar_dados($arr)
 	{
 		$flash1           = array();
-		$flash1['nome']   = $arr['brasilie_flash1_name'];
-		$flash1['titulo'] = $arr['brasilie_flash1_title'];
-		$flash1['texto']  = $arr['brasilie_flash1_text'];
+		$flash1['nome']   = $arr['brasile_flash1_name'];
+		$flash1['titulo'] = $arr['brasile_flash1_title'];
+		$flash1['texto']  = $arr['brasile_flash1_text'];
 		$flash2           = array();
-		$flash2['nome']   = $arr['brasilie_flash2_name'];
-		$flash2['titulo'] = $arr['brasilie_flash2_title'];
-		$flash2['texto']  = $arr['brasilie_flash2_text'];
+		$flash2['nome']   = $arr['brasile_flash2_name'];
+		$flash2['titulo'] = $arr['brasile_flash2_title'];
+		$flash2['texto']  = $arr['brasile_flash2_text'];
 
 		return array($flash1, $flash2);
 	}
@@ -141,6 +141,6 @@ class BrasilieFlash
 }
 
 // Inicia o plugin
-$brasilie_flash = new BrasilieFlash();
+$brasile_flash = new BrasileFlash();
 
 ?>
