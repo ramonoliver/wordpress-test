@@ -8,7 +8,7 @@ if($_POST){
 		$config['brasile_flash1_text']  = $this->cleanXSS($_POST['brasile_flash1_text']);
 		$config['brasile_flash2_name']  = $this->cleanXSS($_POST['brasile_flash2_name']);
 		$config['brasile_flash2_title'] = $this->cleanXSS($_POST['brasile_flash2_title']);
-		$config['brasile_flash2_text']  = $this->cleanXSS($_POST['brasile_flash2_text']);
+		$config['brasile_flash2_text']  = $this->cleanXSS($_POST['brasile_flash2_text']); 
 
 		if($this->validar($config)){
 			$old_file1 = get_option('brasile_flash1_name');

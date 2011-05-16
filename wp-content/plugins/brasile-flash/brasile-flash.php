@@ -1,19 +1,19 @@
 <?php
 /**
- * @package brasile Flash
+ * @package Brasile Flash
  */
 /*
-Plugin Name: brasile Flash
+Plugin Name: Brasile Flash
 Plugin URI: http://brasileturismoviagens.com/
-Description: Plugin desenvolvido especificamente para alterar o conteúdo dos flashs na página inicial do site
+Description: Plugin desenvolvido especificamente para alterar o conteÃºdo dos flashs na pÃ¡gina inicial do site
 Version: 1.0
-Author: Davi Alves
+Author: Davi Alves 
 Author URI: http://agenciaclaro.com.br/
 */
 
 /**
 *
-* Inclue a página de configuração
+* Inclue a pï¿½gina de configuraÃ§Ã£o
 *
 */
 
@@ -26,7 +26,7 @@ class BrasileFlash
 	*/
 	public function __construct()
 	{		
-		// Acão que adiciona o menu
+		// AÃ§Ã£o que adiciona o menu
 		add_action('admin_menu', array($this ,'brasile_admin_menu') );
 	}
 
@@ -37,7 +37,7 @@ class BrasileFlash
 
 	/**
 	*
-	* Método que adiciona o menu e registra as configurações as configurações
+	* Adiciona o menu e registra as configuraÃ§Ãµes
 	*
 	*/
 	public function brasile_admin_menu()
@@ -106,7 +106,7 @@ class BrasileFlash
 	}
 
 	/**
-	* Verifica se nenhum valor passado é nulo
+	* Verifica se nenhum valor passado Ã© nulo
 	* 
 	* @param array $arr
 	* @return boolean
